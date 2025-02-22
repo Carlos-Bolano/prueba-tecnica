@@ -46,12 +46,18 @@ const FormStepThreePage = () => {
   }, [setData, selectedAddOns, router]);
 
   return (
-    <FormLayout>
-      <section className="w-full h-full flex flex-col">
+    <FormLayout
+      buttons={
+        <ButtonsPage backUrl="/Form/step-2" handleNextStep={handleNextStep} text="Next Step" goBack={true} />
+      }
+    >
+      <section className="w-full h-full flex flex-col mb-4 md:mb-0">
         <HeadingsPage title="Pick add-ons" description="Add-ons help enhance your gaming experience." />
         <FormStepThree selectedAddOns={selectedAddOns} toggleAddOn={toggleAddOn} />
       </section>
-      <ButtonsPage backUrl="/Form/step-2" handleNextStep={handleNextStep} text="Next Step" goBack={true} />
+      <div className="hidden md:block">
+        <ButtonsPage backUrl="/Form/step-2" handleNextStep={handleNextStep} text="Next Step" goBack={true} />
+      </div>
     </FormLayout>
   );
 };
