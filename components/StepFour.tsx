@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { PlanType } from "@/types";
 import { addOns, typeOfPlan } from "@/constans";
 import Link from "next/link";
+import SummaryItem from "./SummaryItem";
 
 const StepFour = () => {
   const router = useRouter();
@@ -42,14 +43,6 @@ const StepFour = () => {
     return planPrice + addonsTotal;
   }, [planPrice, selectedAddOns]);
 
-  const SummaryItem = ({ label, price }: { label: string; price: number }) => (
-    <div className="flex justify-between items-center">
-      <h3 className="text-neutral-coolGray capitalize">{label}</h3>
-      <span className="text-primary-navyBlue font-medium">
-        +${price}/{planType === PlanType.YEARLY ? "yr" : "mo"}
-      </span>
-    </div>
-  );
   return (
     <>
       <div className="bg-neutral-magnoliaWhite px-6 py-4 rounded-lg mt-8">
@@ -58,7 +51,10 @@ const StepFour = () => {
             <h2 className="text-primary-navyBlue text-[1.035rem] font-bold capitalize">
               {plan} ({planType})
             </h2>
-            <Link className="text-neutral-coolGray underline font-medium text-[0.9rem]" href="/Form/step-2">
+            <Link
+              className="text-neutral-coolGray underline font-medium text-[0.9rem] hover:text-primary-purpleBlue transition-colors duration-500"
+              href="/Form/step-2"
+            >
               Change
             </Link>
           </div>
@@ -69,7 +65,12 @@ const StepFour = () => {
         <hr />
         <div className="flex flex-col gap-4 my-4">
           {selectedAddOns.map((addon) => (
-            <SummaryItem key={addon.label} label={addon.label} price={addon.price} />
+            <SummaryItem
+              key={addon.label}
+              label={addon.label}
+              price={addon.price}
+              planType={planType as PlanType}
+            />
           ))}
         </div>
       </div>
