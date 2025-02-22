@@ -19,7 +19,7 @@ const FormStepThree = ({ selectedAddOns, toggleAddOn }: FormStepThreeProps) => {
             key={id}
             onClick={() => toggleAddOn(id)}
             className={cn(
-              "flex items-center justify-center px-5 py-4 rounded-lg border border-neutral-lightGray cursor-pointer transition-colors duration-500 hover:border-primary-purpleBlue hover:bg-neutral-magnoliaWhite",
+              "flex items-center justify-center px-5 py-4 rounded-lg border border-neutral-lightGray cursor-pointer transition-colors duration-500 hover:border-primary-purpleBlue",
               isChecked && "bg-neutral-magnoliaWhite border-primary-purpleBlue"
             )}
           >
