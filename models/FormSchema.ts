@@ -1,13 +1,14 @@
 import z from "zod";
+import { PlanType, PlanName } from "@/types"; // Importamos los enums
 
 export const FormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
   email: z.string().email({ message: "Invalid email format" }),
   phoneNumber: z.string().min(1, { message: "Phone number is required" }),
-  planType: z.enum(["monthly", "yearly"], {
+  planType: z.nativeEnum(PlanType, {
     required_error: "Please select a plan type",
   }),
-  plan: z.enum(["arcade", "advanced", "pro"], {
+  plan: z.nativeEnum(PlanName, {
     required_error: "Please select a plan",
   }),
   onlineService: z.boolean().default(false),
