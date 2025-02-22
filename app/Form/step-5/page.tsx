@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const FormStepFivePage = () => {
   return (
-    <FormLayout className="justify-center items-center">
+    <FormLayout className="justify-center items-center py-14 md:py-0">
       <Image
         className="size-[80px] mx-auto mb-6"
         src="/images/icon-thank-you.svg"
