@@ -14,7 +14,7 @@ interface ButtonsProps {
 const ButtonsPage = ({ handleNextStep, backUrl, variant = "default", text, goBack }: ButtonsProps) => {
   const router = useRouter();
   return (
-    <div className="hidden md:flex items-center mb-4">
+    <div className="flex items-center justify-center">
       {goBack &&
         (backUrl ? (
           <Link href={backUrl} title="Back" className={buttonVariants({ variant: "link" })}>
