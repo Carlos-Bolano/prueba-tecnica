@@ -14,15 +14,17 @@ export default function Home() {
     }
   };
   return (
-    <FormLayout>
-      <main>
+    <FormLayout buttons={<ButtonsPage handleNextStep={handleSubmit} text="Next Step" />}>
+      <main className="mb-4 md:mb-0">
         <HeadingsPage
           title="Personal info"
           description="Please provide your name, email address, and phone number."
         />
         <FormStepOne formRef={formRef} />
       </main>
-      <ButtonsPage handleNextStep={handleSubmit} text="Next Step" />
+      <div className="hidden md:block">
+        <ButtonsPage handleNextStep={handleSubmit} text="Next Step" />
+      </div>
     </FormLayout>
   );
 }
