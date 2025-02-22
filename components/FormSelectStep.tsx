@@ -32,7 +32,7 @@ const FormSelectStep = () => {
                 </span>
                 <aside className="flex flex-col uppercase">
                   <span className="-mb-1 text-neutral-coolGray text-sm font-medium">{step.name}</span>
-                  <p className="font-bold text-neutral-lightGray">{step.text}</p>
+                  <p className="font-bold text-neutral-lightGray tracking-wider">{step.text}</p>
                 </aside>
               </Link>
             </li>
