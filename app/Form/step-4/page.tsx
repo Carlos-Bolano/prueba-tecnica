@@ -12,7 +12,17 @@ const FormStepFourPage = () => {
     window.location.href = "/Form/step-5";
   };
   return (
-    <FormLayout>
+    <FormLayout
+      buttons={
+        <ButtonsPage
+          backUrl="/Form/step-3"
+          handleNextStep={handleNextStep}
+          text="Confirm"
+          variant="secondary"
+          goBack={true}
+        />
+      }
+    >
       <section>
         <HeadingsPage
           title="Finishing up"
@@ -20,13 +30,15 @@ const FormStepFourPage = () => {
         />
         <FoemStepFour />
       </section>
-      <ButtonsPage
-        backUrl="/Form/step-3"
-        handleNextStep={handleNextStep}
-        text="Confirm"
-        variant="secondary"
-        goBack={true}
-      />
+      <div className="hidden md:block">
+        <ButtonsPage
+          backUrl="/Form/step-3"
+          handleNextStep={handleNextStep}
+          text="Confirm"
+          variant="secondary"
+          goBack={true}
+        />
+      </div>
     </FormLayout>
   );
 };
