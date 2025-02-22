@@ -1,36 +1,15 @@
 "use client";
+import { steps } from "@/constans";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-const SiderBar = () => {
+const FormSelectStep = () => {
   const pathname = usePathname();
-  const steps = [
-    {
-      name: "Step 1",
-      text: "Your info",
-      route: "/",
-    },
-    {
-      name: "Step 2",
-      text: "Select plan",
-      route: "/step-2",
-    },
-    {
-      name: "Step 3",
-      text: "Add-ons",
-      route: "/step-3",
-    },
-    {
-      name: "Step 4",
-      text: "Summary",
-      route: "/step-4",
-    },
-  ];
 
   return (
-    <nav className="siderbar max-w-[274px] rounded-xl">
+    <nav className="hidden md:block step-selector max-w-[274px] rounded-xl">
       <ul className="flex flex-col gap-3 py-8 p-6">
         {steps.map((step, index) => {
           const stepPath = step.route === "/" ? "/" : `/Form${step.route}`;
@@ -64,4 +43,4 @@ const SiderBar = () => {
   );
 };
 
-export default SiderBar;
+export default FormSelectStep;
