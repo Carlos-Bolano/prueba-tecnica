@@ -2,8 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+:root {
+  --font-ubuntu: "Ubuntu", sans-serif;
+}
+
 body {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-ubuntu);
 }
 
 @layer base {
@@ -12,9 +22,28 @@ body {
   }
 }
 
-.siderbar {
+.step-selector {
   background: url("../public/images/bg-sidebar-desktop.svg");
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.step-selector-mobile {
+  background: url("/images/bg-sidebar-mobile.svg") no-repeat top center;
+  background-size: cover;
+  width: 100%;
+  height: 200px; /* Ajusta la altura según sea necesario */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px; /* Ajusta el espacio superior según necesites */
+}
+
+@layer utilities {
+  .input-autofill:-webkit-autofill {
+    @apply text-primary-navyBlue !important;
+    -webkit-text-fill-color: theme("colors.primary.navyBlue/90") !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
 }
